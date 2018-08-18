@@ -1,0 +1,9 @@
+三個假flag:
+一開始圖片上的flag
+用hex friend打開拿到的flag
+用binwalk爆破之後用pkcrack拿到的flag
+
+真flag:
+在第一個假flag的中下框框的中間線有藏有模糊的morse code
+不含大括號解密後為AIS3{YOUFINDTHEREALFLAGOHYEAH}
+注意morse解出來是大寫

